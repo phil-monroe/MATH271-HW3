@@ -23,7 +23,7 @@ title('Short Time Fourier Transform', 'FontSize', 14),xlabel('Time', 'FontSize',
 rwt = RWT(f, 8, 'Sombrero', 1, 4);
 rwt = fliplr(rwt);
 subplot(3, 1, 3), ImageRWT(rwt,'Individual','gray','log'); 
-title('Symlet CWT - sym8', 'FontSize', 14), xlabel('Time', 'FontSize', 14), ylabel('Scale', 'FontSize', 14)
+title('Continuous Wavelet Transform', 'FontSize', 14), xlabel('Time', 'FontSize', 14), ylabel('Scale', 'FontSize', 14)
 
 
 %% Discontinuous Signal
