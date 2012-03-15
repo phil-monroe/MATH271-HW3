@@ -20,7 +20,9 @@ subplot(3, 1, 2), WindowFT(f,50,1,'Gaussian');
 title('Short Time Fourier Transform', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Frequency', 'FontSize', 14)
 
 % Plot CWT ----------------------------------------------------------------
-subplot(3, 1, 3), cwt(f,1:32,'db8','plot'); 
+rwt = RWT(f, 8, 'Sombrero', 1, 4);
+rwt = fliplr(rwt);
+subplot(3, 1, 3), ImageRWT(rwt,'Individual','gray','log'); 
 title('Symlet CWT - sym8', 'FontSize', 14), xlabel('Time', 'FontSize', 14), ylabel('Scale', 'FontSize', 14)
 
 
@@ -29,13 +31,19 @@ clear; clc; figure(2);
 
 % Load Signal -------------------------------------------------------------
 f = ReadSignal('msignal');
-x = 1:length(f);
+N = length(f);
+x = 1:N;
 
 
-% Compute STFT ------------------------------------------------------------
-
-% Compute Continuous WT ---------------------------------------------------
-
-% Plot --------------------------------------------------------------------
+% Plot Signal -------------------------------------------------------------
 subplot(3, 1, 1), plot(x, f);
-xlabel('Discontinuous Signal');
+axis tight;
+title('Chirp Signal', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Amplitude', 'FontSize', 14)
+
+% Plot STFT ---------------------------------------------------------------
+subplot(3, 1, 2), WindowFT(f,50,1,'Gaussian');
+title('Short Time Fourier Transform', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Frequency', 'FontSize', 14)
+
+% Plot CWT ----------------------------------------------------------------
+subplot(3, 1, 3), cwt(f,1:32,'sym8','plot'); 
+title('Symlet CWT - sym8', 'FontSize', 14), xlabel('Time', 'FontSize', 14), ylabel('Scale', 'FontSize', 14)
