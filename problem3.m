@@ -37,7 +37,7 @@ x = 1:N;
 % Plot Signal -------------------------------------------------------------
 subplot(3, 1, 1), plot(x, f);
 axis tight;
-title('Chirp Signal', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Amplitude', 'FontSize', 14)
+title('Discontinuous Signal', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Amplitude', 'FontSize', 14)
 
 % Plot STFT ---------------------------------------------------------------
 subplot(3, 1, 2), WindowFT(f,50,1,'Gaussian');
