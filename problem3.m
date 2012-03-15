@@ -2,8 +2,6 @@ close all;
 global WLVERBOSE;
 WLVERBOSE='No';
 
-set(0, 'DefaultTextFontSize', 14)
-set(0, 'DefaultTextFontWeight', 'bold')
 %% Chirp Signal
 clear; clc; figure(1);
 
@@ -15,11 +13,11 @@ x = 1:N;
 % Plot Signal -------------------------------------------------------------
 subplot(3, 1, 1), plot(x, f);
 axis tight;
-title('Chirp Signal'),xlabel('Time'), ylabel('Amplitude')
+title('Chirp Signal', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Amplitude', 'FontSize', 14)
 
 % Plot STFT ---------------------------------------------------------------
 subplot(3, 1, 2), WindowFT(f,50,1,'Gaussian');
-title('Short Time Fourier Transform'),xlabel('Time'), ylabel('Frequency')
+title('Short Time Fourier Transform', 'FontSize', 14),xlabel('Time', 'FontSize', 14), ylabel('Frequency', 'FontSize', 14)
 
 % Plot CWT ----------------------------------------------------------------
 subplot(3, 1, 3), cwt(f,1:32,'db8','plot'); 
